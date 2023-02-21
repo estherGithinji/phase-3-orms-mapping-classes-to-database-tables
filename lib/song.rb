@@ -20,7 +20,7 @@ class Song
   end
 
   def save
-    
+
     sql = <<-SQL
     INSERT INTO songs (name, album)
     VALUES (?, ?)
@@ -34,6 +34,11 @@ class Song
 
     # return the ruby instance
     self
+  end
+
+  def self.create(name:, album:)
+    song = Song.new(name: name, album: album)
+    song.save
   end
 
 end
